@@ -10,11 +10,17 @@ using System.Windows.Forms;
 
 namespace BMICalculator
 {
-    public partial class Form1 : Form
+    public partial class BMICalculatorForm : Form
     {
-        public Form1()
+        public BMICalculatorForm()
         {
             InitializeComponent();
         }
+
+        private void CalculatorButton_Click(object sender, EventArgs e)
+        {
+
+        }
+       
     }
 }
