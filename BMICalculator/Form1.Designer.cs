@@ -40,6 +40,7 @@
             this.label12 = new System.Windows.Forms.Label();
             this.label11 = new System.Windows.Forms.Label();
             this.label10 = new System.Windows.Forms.Label();
+            this.Table = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
@@ -47,7 +48,6 @@
             this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.ImperialRadioButton = new System.Windows.Forms.RadioButton();
-            this.Table = new System.Windows.Forms.Label();
             this.MainForm.SuspendLayout();
             this.BMISCaleTable.SuspendLayout();
             this.SuspendLayout();
@@ -70,6 +70,7 @@
             this.CalculatorButton.Name = "CalculatorButton";
             this.CalculatorButton.Size = new System.Drawing.Size(99, 27);
             this.CalculatorButton.TabIndex = 6;
+            this.CalculatorButton.Tag = "Calculate";
             this.CalculatorButton.Text = "Calculate";
             this.CalculatorButton.UseVisualStyleBackColor = true;
             this.CalculatorButton.Click += new System.EventHandler(this.CalculatorButton_Click);
@@ -81,6 +82,7 @@
             this.ResultTextBox.Name = "ResultTextBox";
             this.ResultTextBox.Size = new System.Drawing.Size(134, 20);
             this.ResultTextBox.TabIndex = 5;
+            this.ResultTextBox.Tag = "ResultTextBox";
             // 
             // WeightTextBox
             // 
@@ -90,6 +92,7 @@
             this.WeightTextBox.Name = "WeightTextBox";
             this.WeightTextBox.Size = new System.Drawing.Size(134, 20);
             this.WeightTextBox.TabIndex = 3;
+            this.WeightTextBox.Tag = "WeightTextBox";
             this.WeightTextBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // HeightTextBox
@@ -100,6 +103,8 @@
             this.HeightTextBox.Name = "HeightTextBox";
             this.HeightTextBox.Size = new System.Drawing.Size(134, 20);
             this.HeightTextBox.TabIndex = 2;
+            this.HeightTextBox.Tag = "HeightTextBox";
+            this.HeightTextBox.Click += new System.EventHandler(this.HeightTextBox_Click);
             // 
             // WeightLabel
             // 
@@ -149,7 +154,7 @@
             this.MetricRadioButton.Name = "MetricRadioButton";
             this.MetricRadioButton.Size = new System.Drawing.Size(59, 19);
             this.MetricRadioButton.TabIndex = 10;
-            this.MetricRadioButton.TabStop = true;
+            this.MetricRadioButton.Tag = "Metric";
             this.MetricRadioButton.Text = "Metric";
             this.MetricRadioButton.UseVisualStyleBackColor = true;
             // 
@@ -189,11 +194,12 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.label12.AutoSize = true;
+            this.label12.BackColor = System.Drawing.Color.Green;
             this.label12.Location = new System.Drawing.Point(140, 31);
             this.label12.Name = "label12";
             this.label12.Size = new System.Drawing.Size(130, 14);
             this.label12.TabIndex = 10;
-            this.label12.Text = "Between 18.5 and 24.9";
+            this.label12.Text = "From 18.5 to 24.9";
             // 
             // label11
             // 
@@ -201,6 +207,7 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.label11.AutoSize = true;
+            this.label11.BackColor = System.Drawing.Color.Red;
             this.label11.Location = new System.Drawing.Point(140, 61);
             this.label11.Name = "label11";
             this.label11.Size = new System.Drawing.Size(130, 17);
@@ -213,11 +220,25 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.label10.AutoSize = true;
+            this.label10.BackColor = System.Drawing.Color.Red;
             this.label10.Location = new System.Drawing.Point(4, 61);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(129, 17);
             this.label10.TabIndex = 8;
             this.label10.Text = "Obese";
+            // 
+            // Table
+            // 
+            this.Table.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.Table.AutoSize = true;
+            this.Table.BackColor = System.Drawing.Color.Orange;
+            this.Table.Location = new System.Drawing.Point(140, 46);
+            this.Table.Name = "Table";
+            this.Table.Size = new System.Drawing.Size(130, 14);
+            this.Table.TabIndex = 7;
+            this.Table.Text = "From 25 to 29.9";
             // 
             // label8
             // 
@@ -225,6 +246,7 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.label8.AutoSize = true;
+            this.label8.BackColor = System.Drawing.Color.Orange;
             this.label8.Location = new System.Drawing.Point(4, 46);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(129, 14);
@@ -237,6 +259,7 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.label7.AutoSize = true;
+            this.label7.BackColor = System.Drawing.Color.Green;
             this.label7.Location = new System.Drawing.Point(4, 31);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(129, 14);
@@ -249,6 +272,7 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.label6.AutoSize = true;
+            this.label6.BackColor = System.Drawing.Color.Yellow;
             this.label6.Location = new System.Drawing.Point(140, 16);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(130, 14);
@@ -261,6 +285,7 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.label5.AutoSize = true;
+            this.label5.BackColor = System.Drawing.Color.Yellow;
             this.label5.Location = new System.Drawing.Point(4, 16);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(129, 14);
@@ -297,25 +322,15 @@
             // 
             this.ImperialRadioButton.Anchor = System.Windows.Forms.AnchorStyles.Right;
             this.ImperialRadioButton.AutoSize = true;
+            this.ImperialRadioButton.Checked = true;
             this.ImperialRadioButton.Location = new System.Drawing.Point(67, 198);
             this.ImperialRadioButton.Name = "ImperialRadioButton";
             this.ImperialRadioButton.Size = new System.Drawing.Size(70, 19);
             this.ImperialRadioButton.TabIndex = 9;
             this.ImperialRadioButton.TabStop = true;
+            this.ImperialRadioButton.Tag = "Imperial";
             this.ImperialRadioButton.Text = "Imperial";
             this.ImperialRadioButton.UseVisualStyleBackColor = true;
-            // 
-            // Table
-            // 
-            this.Table.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.Table.AutoSize = true;
-            this.Table.Location = new System.Drawing.Point(140, 46);
-            this.Table.Name = "Table";
-            this.Table.Size = new System.Drawing.Size(130, 14);
-            this.Table.TabIndex = 7;
-            this.Table.Text = "Between 25 and 29.9";
             // 
             // BMICalculatorForm
             // 
