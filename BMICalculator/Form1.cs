@@ -15,6 +15,8 @@ namespace BMICalculator
         float Hieghtvalue;
         float Weightvalue;
         float Bmivalue;
+        public bool decimalExists { get; set; }
+        public string outputString { get; set; }
 
         public BMICalculatorForm()
         {
@@ -23,7 +25,19 @@ namespace BMICalculator
 
         private void CalculatorButton_Click(object sender, EventArgs e)
         {
-            if (ImperialRadioButton.Checked == true)
+            if (WeightTextBox.Text == "")
+            {
+                string message = "Empty fields";
+                MessageBox.Show(message);
+
+            }
+            else if (HeightTextBox.Text == "")
+            {
+                string message = "Empty fields";
+                MessageBox.Show(message);
+
+            }
+            else if (ImperialRadioButton.Checked == true)
             {
                 ResultTextBox.BackColor = Color.White;
 
@@ -64,74 +78,28 @@ namespace BMICalculator
                 ResultTextBox.BackColor = Color.Red;
             }
 
-
-
-
-            /* var TheButton = sender as Button;
-             var tag = TheButton.Tag.ToString();
-
-             int buttonValue;
-             bool resultCondition = int.TryParse(TheButton.Text, out buttonValue);
-             // bool resultCondition = int.TryParse(tag, out buttonValue);
-
-             if (resultCondition)
-                 // If the use pressed a number button
-                 if (resultCondition)
-                 {
-                     CalculatorButton.Text += TheButton.Text;
-                     int maxSize = 3;
-                     if (decimalExists)
-                     {
-                         maxSize = 5;
-                     }
-
-                     if ((outputString != "0") && (ResultTextBox.Text.Count() < maxSize))
-                     {
-                         outputString += tag;
-                         ResultTextBox.Text = outputString;
-                     }
-                 }
-
-
-
-             /// <summary>
-             /// This method adds a decimal to the ResultLabel
-             /// </summary>
-
-
-                 if (!decimalExists)
-                 {
-                     outputString += ".";
-                     decimalExists = true;
-                 }
-
-             */
-
-
-
-
-
-
-
-
-
-
         }
 
         private void HeightTextBox_Click(object sender, EventArgs e)
         {
 
 
-            /*
-            var TheButton = sender as Button;
-            var tag = TheButton.Tag.ToString();
-            int buttonValue;
-            bool resultCondition = int.TryParse(TheButton.Text, out buttonValue);*/
+           
         }
-
+        
         private void HeightTextBox_KeyPress(object sender, KeyPressEventArgs e)
         {
+            
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar) && (e.KeyChar != '.'))
+            {
+                e.Handled = true;
+            }
 
+            // only allow one decimal point
+            if ((e.KeyChar == '.') && ((sender as TextBox).Text.IndexOf('.') > -1))
+            {
+                e.Handled = true;
+            }
         }
     }
 }
